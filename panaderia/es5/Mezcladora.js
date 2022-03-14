@@ -1,0 +1,6 @@
+function Mezcladora() {
+  this.getMasa = function() {
+    console.log('Generando masa');
+    return 'masa';
+  }
+}
