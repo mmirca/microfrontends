@@ -1,0 +1,14 @@
+{
+  "name": "@panaderia/rmp",
+  "version": "1.0.0",
+  "description": "Ejemplo de módulos usando la solución RMP",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server ."
+  },
+  "author": "mmirca",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.0"
+  }
+}

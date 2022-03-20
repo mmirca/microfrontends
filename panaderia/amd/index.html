@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panadería AMD</title>
+</head>
+<body>
+  <h2>Panadería AMD</h2>
+  <button id="load-async">Carga asíncrona</button>
+
+  <script src="./node_modules/requirejs/require.js"></script>
+  <script>
+    requirejs.config({
+      baseUrl: './src'
+    });
+  </script>
+
+  <!-- Carga de instancia de app sincrona -->
+  <script src="./src/index.js"></script>
+
+  <!-- Carga asíncrona -->
+  <script>
+    (function() {
+      var $asyncLoadBtn = document.getElementById('load-async');
+
+      $asyncLoadBtn.onclick = function() {
+        require(
+          ['Panaderia'],
+          function(Panaderia) {
+            console.log('');
+            console.log('Cargada nueva instancia de Panadería');
+            console.log('');
+            var panaderia = new Panaderia();
+            panaderia.prepararPan();
+          }
+        );
+      }
+    })()
+  </script>
+</body>
+</html>

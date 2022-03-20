@@ -1,0 +1,16 @@
+{
+  "name": "@panaderia/amd",
+  "version": "1.0.0",
+  "description": "Ejemplo de módulos usando la solución AMD",
+  "main": "index.js",
+  "dependencies": {
+    "http-server": "^14.1.0",
+    "requirejs": "^2.3.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "http-server ."
+  },
+  "author": "mmirca",
+  "license": "ISC"
+}
