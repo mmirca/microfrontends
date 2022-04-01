@@ -224,7 +224,7 @@ Vamos a partir de la implementación del siguiente diagrama para entender las di
 
 Empezamos implementando este diagrama [en es5](./panaderia/es5). Este mismo código lo podemos transformar manualmente en:
 
-* [RMP](./panaderia/rmp)
-* [CJS](./panaderia/cjs)
-* [AMD](./panaderia/amd)
-* [UMD](./panaderia(umd))
+* [RMP](../panaderia/rmp)
+* [CJS](../panaderia/cjs)
+* [AMD](../panaderia/amd)
+* [UMD](../panaderia(umd))

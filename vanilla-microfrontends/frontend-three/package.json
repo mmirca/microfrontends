@@ -1,0 +1,22 @@
+{
+  "name": "@vanilla-mfs/frontend-three",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "preserve": "npm run build",
+    "serve": "http-server dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.0",
+    "rollup": "^2.70.1",
+    "rollup-plugin-copy": "^3.4.0"
+  },
+  "dependencies": {
+    "@vanilla-mfs/frontend-one": "file:../frontend-one",
+    "@vanilla-mfs/frontend-two": "file:../frontend-two"
+  }
+}
