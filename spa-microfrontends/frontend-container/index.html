@@ -5,24 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.js"></script>
+  <script src="./node_modules/systemjs/dist/system.js"></script>
+  <script src="./node_modules/systemjs/dist/extras/amd.js"></script>
   <script type="systemjs-importmap" src="./import-map.json"></script>
 </head>
 <body>
-  <script>
-    System.import('single-spa').then(function (singleSpa) {
-      singleSpa.registerApplication({
-        name: '@mfs/microfrontend-react',
-        app: function () {
-          return System.import('@mfs/microfrontend-react');
-        },
-        activeWhen: ["/"],
-        customProps: {}
-      });
-
-      singleSpa.start();
-    });
-  </script>
+  <script src="./src/main.js"></script>
 </body>
 </html>

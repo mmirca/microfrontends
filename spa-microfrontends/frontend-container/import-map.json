@@ -3,6 +3,7 @@
     "single-spa": "./node_modules/single-spa/lib/system/single-spa.min.js",
     "react": "./node_modules/react/umd/react.production.min.js",
     "react-dom": "./node_modules/react-dom/umd/react-dom.production.min.js",
-    "@mfs/microfrontend-react": "./node_modules/@mfs/microfrontend-react/dist/mfs-microfrontend-react.js"
+    "@mfs/microfrontend-react": "./node_modules/@mfs/microfrontend-react/dist/mfs-microfrontend-react.js",
+    "@mfs/microfrontend-react-two": "./node_modules/@mfs/microfrontend-react-two/dist/mfs-microfrontend-react-two.js"
   }
 }
