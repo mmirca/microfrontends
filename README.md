@@ -28,6 +28,11 @@ Este tipo de planteamiento presenta algunos desafíos como:
 
 El hecho de que a día de hoy podamos hablar de microfrontends es posible solo gracias a estos grandes avances. A día de 
 
+
+Partes:
+* Micrfrontend
+* Container: pone las dependencias comunes
+
 ## Tabla de contenidos
 
 1. [Módulos en JS](./docs/01-js-modules.md)

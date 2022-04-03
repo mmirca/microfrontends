@@ -1,6 +1,6 @@
-# Frontend Three
+# Frontend Container
 
-Proyecto que muestra como podemos crear un microfrontend a partir de la composición de otros microfronteneds.
+Proyecto que crea un contenedor con las dependencias necesarias para lanzar microfrontends react. 
 
 ## Instalación
 
@@ -11,9 +11,8 @@ Asegurate de tener instaladas estas dependencias:
 
 Instala y construye los paquetes:
 
-* [@vanilla-mfs/frontend-one](../frontend-one/)
-* [@vanilla-mfs/frontend-two](../frontend-two/)
-
+* [@mfs/microfrontend-react](../frontend-react/)
+* [@mfs/microfrontend-react-two](../frontend-react-two/)
 
 Luego en abre una terminal y ejecuta:
 
@@ -26,5 +25,5 @@ npm i
 Abre la terminal y ejecuta:
 
 ```
-npm run serve
+npm run start
 ```
