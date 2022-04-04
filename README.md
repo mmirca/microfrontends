@@ -1,42 +1,48 @@
 # Microfrontends
 
-Intro a microfrontends..
+Son aplicaciones independientes que pueden lanzarse en modo standalone pero también pueden ser inyectadas en un contenedor para crear aplicaciones más complejas mediante composición. Cada una de estas aplicaciones en independiente y puede ser desarrollada por equipos diferentes.
 
-Evolución de las apps:
-* Al principio era extremadamente dificil hacer apps en navegador porque
-  * la gestión de dependencias era muy complicada
-  * la aplicación tenía que cargar entera para poder ser usada
-    * esto junto con los navegadores antiguos con motores de renderizado lentos creaba una combinación imposible. Por eso todo se hacía en servidor con lenguajes tipo PHP, JSP, etc.
-      * JS solo se usaba para introducir alguna animación puntual, cambiar el color de elementos, ...
-  * con el tiempo se fueron solucionando estos problemas
-    * en este repositorio vamos a ver como con la evolución de las soluciones de modulos JS se fueron abriendo las puertas para crear aplicaciones cada vez más complejas en navegador
-
-¿Por qué las aplicaciones en lado de cliente?
-* Alivian la carga en el servidor, interpretar HTML...
-* Arquitecturas mucho más limpias, antes todo era monolítico
-  * Esto permite soluciones tipo CDN son muy escalables
-* Ofrecen una experiencia de usuario mucho mejor
-  * Podemos controlar todos los aspectos de la app sin momentos "en blanco"
+![microfrontends](./assets/diagrama-microfrontends.png)
 
 
-Así llegamos al día de hoy, un día en el que tenemos aplicaciones tan complejas en lado de cliente que empezamos a hablar de microfrontends. Este concepto hace referencia a aplicaciones que pueden nacer de la combinación de otras aplicaciones. Por ejemplo, en un banco podemos tener una aplicación para realizar pagos y otra para recargar teléfonos móbiles. Cada una pueda estar desplegada de forma independiente y luego podemos crear una nueva aplicación a partir de estas dos piezas sin introducir mediante composición sin esfuerzo adicional. De esta forma tendríamos una aplicación compuesta de 2 microfrontends.
+De esta forma podemos tener, por ejemplo en un banco, una aplicación para realizar pagos y otra para recargar teléfonos móbiles. Cada una pueda estar desplegada de forma independiente y mantenida por equipos diferentes. Luego haciendo referencia a esas mismas aplicaciones sin introducir cambios en ellas podemos crear una nueva mediante composición sin esfuerzo adicional resultando en una aplicación compuesta de 2 microfrontends.
+
+
+
+## 1 - Tabla de contenidos
+
+1. [Microfrontends](./README.md)
+2. [Módulos en JS](./docs/01-js-modules.md)
+3. [Microfrontends con VanillaJS](./docs/02-vanilla-microfrontends.md)
+4. [Microfrontends con frameworks JS](./docs/03-fwks-microfrontends.md)
+5. [Casos de uso](./docs/04-use-cases.md)
+6. [Próximos pasos](./docs/05-next-steps.md)
+
+
+
+## 2 - Evolución de las aplicaciones JavaScript
+
+Partimos de un inicio complicado para las aplicaciones Javascript. Es un lenguaje que originalmente se utilizaba sobre todo para pequeñas animaciones e interacciones, la lógica de negocio se manejaba en tecnologías como PHP y JSP. ¿Por qué? Porque si tratamos de usar Javascript plano pronto nos enonctramos limitaciones como en el ejemplo de [@panaderia/vanilla](./panaderia/vanilla/):
+
+* **La gestión de dependencias es muy complicada:** tenemos que llevar un orden concreto de forma manual que es muy complicado de escalar
+* **Es bloqueante:** impedirá cualquier acción por parte del usuario hasta que no termina la carga. Esto es especialente doloroso en navegadores antiguos que no cuentan con motores de renderizado tan potentes como los modernos.
+
+Sin embargo, con el paso de los años se ha dedicado esfuerzo en ir solventando los problemas que evitaban usar Javascript como lenguaje principal. Esto ha permitido la aparición de aplicaciones que se ejecutan 100% en el lado del cliente trayendo ventajas como:
+
+* **Alivian la carga en el servidor:** evitamos hacer composiciones de archivos HTML de forma dinámica en servidor lo que puede llegar a ser muy costoso. En su lugar, delegamos este trabajo a la máquina del cliente que quiere consumir la aplicación.
+* **Arquitecturas más limpias:** permite pasar de arquitecturas monolíticas a arquitecturas distribuidas donde cada parte se especializa en hacer bien una sola cosa. Este tipo de arquitecturas son más mantenibles, más resilientes y más fáciles de escalar.
+* **Ofrecen una mejor experiencia de usuario:** permite controlar todas las interacciones del usario con la aplicación sin momentos "en blanco" entre la carga de diferentes páginas que si encontramos en tecnologías como PHP y JSP.
+
+
+En este repositorio vamos a hacer foco en un aspecto fundamental que permitió la proliferación de las aplicaciones en lado de cliente: la evolución de las soluciones de modulos Javascript.
+
+
+
+## 3 - Desafíos comunes (TODO)
 
 Este tipo de planteamiento presenta algunos desafíos como:
 * Carga asíncrona: si tengo que cargar todo el contenido de cada microfrontends puedo llegar rápidamente a un límite en el que la app ya no es usable
+  * Resolución de dependencias comunes: si cada aplicación carga sus dependencias de forma aislada tendremos una situación parecida al de la carga asíncrona. Llegaremos rápidamente a un límite en el que la app ya no es usable. Hay que encontrar formas para poder compartir dependencias comunes entre los diferentes microfronteds.
 * Comunicación entre aplicaciones: tiene que existir una pieza de comunicación transversal para que los diferentes microfrontends puedan intercambiar datos sin que tengamos que realizar un desarrollo adicional
-* Resolución de dependencias comunes: si cada aplicación carga sus dependencias de forma aislada tendremos una situación parecida al de la carga asíncrona. Llegaremos rápidamente a un límite en el que la app ya no es usable. Hay que encontrar formas para poder compartir dependencias comunes entre los diferentes microfronteds.
+* Unificación de dependencias: todas las apps comparten las dependencias. No permite tener versiones diferentes de una librería por ejemplo. Este tipo de solución es más susceptible a errores a la hora de desplegar evolutivos de esas dependencias compartidas. Hay soluciones tipo NX que te avisan de cuales son los proyectos afectados. Esto con una buena estrategia de testing debería ser suficiente.
 
-El hecho de que a día de hoy podamos hablar de microfrontends es posible solo gracias a estos grandes avances. A día de 
-
-
-Partes:
-* Micrfrontend
-* Container: pone las dependencias comunes
-
-## Tabla de contenidos
-
-1. [Módulos en JS](./docs/01-js-modules.md)
-2. [Microfrontends con VanillaJS](./docs/02-vanilla-microfrontends.md)
-3. [Microfrontends con frameworks JS](./docs/03-fwks-microfrontends.md)
-4. [Casos de uso](./docs/04-use-cases.md)
-5. [Próximos pasos](./docs/05-next-steps.md)

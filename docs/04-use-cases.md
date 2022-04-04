@@ -17,6 +17,7 @@ PROs
 
 
 CONs
-* Performance
+* Performance?
+  * 
 * Problemas de convivencia
   * ej Eventos?
