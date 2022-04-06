@@ -1,23 +1,14 @@
 # Casos de uso
 
-¿Qué problemas soluciona?
+Hemos visto formas de implementar microfrontends en vanilla JS y con frameworks JS. Introduce bastante complejidad frente al desarrollo de aplicaciones estándar digamos pero a cambio ganamos:
 
-Trabajo en paralelo sobre la misma app con la misma tecnologia
+* **Resiliencia:** cuando dividimos una aplicación grande en microfrontends tenemos un sistema con partes pequeñas en las que el fallo de una no afecta a la otra. En aplicaciones monolíticas si introducimos un fallo es posible dejar inoperativa una gran parte del sistema.
+* **Reutilización:** por la naturaleza de los microfrontends tienen doble utilidad, se pueden desplegar en modo standalone como una aplicación independiente pero también como parte de una aplicación mayor. Este es un nivel que queda completamente desaprovechado en aplicaciones monolíticas.
+* **Flexibilidad en el mercado laboral:** permite integrar el esfuerzo de perfiles con experiencia en diferentes tecnologías. Hoy en día el ecosistema Javascript es muy amplio y hay perfiles muy especializados en frameworks concretos. Cuando hacemos aplicaciones monolíticas este talento no se puede aprovechar porque nos cerramos a un stack concreto mientras que con los microfrontends podemos integrar varias tecnologías. Esto aplica también a casos en los que 2 empresas se fusionan y tienen que integrar su plantilla de desarrolladores que suelen trabajar con tecnologías diferentes.
+* **Trabajo en paralelo:** varios equipos pueden trabajar en paralelo en partes diferentes de una aplicación más compleja de forma independiente y luego componer su trabajo. Esto agiliza los tiempos de desarrollo
 
-* Resiliente
-* Reutilizable
-* etc.
+Este tipo de planteamiento no solo tiene aspectos positivos sino que **también presenta desafíos** como:
 
-Merge de equipos con stacks diferentes
-
-PROs
-* Flexibilidad en el mercado laboral
-* Aprovechar skills
-* merge de empresas
-
-
-CONs
-* Performance?
-  * 
-* Problemas de convivencia
-  * ej Eventos?
+* **Resolución de dependencias comunes:** al cargar varias aplicaciones en un contenedor es común que encontremos dependencias comunes que tenemos que extraer para no cargar 2 veces para optimizar la carga. En ciertos casos, especialmente con el uso de frameworks frontend, puede ser que incluso tengamos errores en el comportamiento de la aplicación si hay varias instancias de la misma dependencias a la vez.
+* **Comunicación entre aplicaciones:** uno de los factores clave es la comunicación entre las aplicaciones. Tiene que existir una pieza de comunicación transversal para que los diferentes microfrontends puedan intercambiar datos sin que tengamos que realizar un desarrollo adicional en ellas.
+* **Dependencias sincronizadas:** esto que parece una ventaja puede ser también problemático especialmente al usar frameworks frontend porque las aplicaciones que se cargan como microfrontends no pueden establecer su propia versión del framework cuando se cargan en el contenedor. **Todas los microfrontends usarán la misma dependencias** y si tenemos algunas más antiguas que no estén probadas con versiones más recientes podemos encontrar errores en ejecución. Hay soluciones tipo NX que te avisan de cuales son los proyectos afectados. Esto con una buena estrategia de testing debería ser suficiente.

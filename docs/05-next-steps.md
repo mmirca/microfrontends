@@ -1,12 +1,6 @@
 # Próximos pasos
 
-comunicación entre microfrontends utilizando eventos/redux/pubsub
-
-single-spa-angular
-
-Containers que soportan Angular y React simultaneamente
-
-module federation en Webpack
-
-umd/amd output de Angular/React?
-
+* Comunicación entre microfrontends utilizando redux/pubsub
+* single-spa-angular/single-spa-vue
+* Containers que soportan Angular y React simultaneamente
+* Module federation en Webpack
