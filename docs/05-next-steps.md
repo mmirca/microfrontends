@@ -1,6 +1,6 @@
 # Próximos pasos
 
-comunicación entre microfrontends utilizando redux/pubsub
+comunicación entre microfrontends utilizando eventos/redux/pubsub
 
 single-spa-angular
 

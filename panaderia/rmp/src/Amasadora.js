@@ -1,7 +1,6 @@
 /**
  * Nombre público del módulo
  */
-console.log(MezcladoraRmp);
 var AmasadoraRmp = (function(Mezcladora, Formadora) {
   function Amasadora() {
     this.getBarra = function() {

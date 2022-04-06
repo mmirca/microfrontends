@@ -10,7 +10,7 @@ Es importante no confundir módulo con el concepto de API. Este se refiere a los
 
 Hasta el año 2015, cuándo se introduce el estándar ES6 de JS y ESM(ECMAScript Modules), no había un estándar oficial para la definición y carga de módulos. Esto implica que desde la creación del lenguaje en 1995 tenemos un periodo de 20 años en los que la propia comunidad JS ha tenido que definir sus propias formas de trabajar con módulos. Es por esto que a día de hoy tenemos varias formas de definir y cargar módulos muy extendidas.
 
-Es conviente utilizar una solución para modularizar nuestros sistemas JS porque al construir una aplicación nos podemos encontrar muy pronto con serios de escalabilidad como:
+Es conveniente utilizar una solución para modularizar nuestros sistemas JS porque al construir una aplicación nos podemos encontrar muy pronto con serios de escalabilidad como:
 
 * **Contaminación del contexto global:** por defecto trabajamos sobre el contexto global, una colisión de nombres puede llevar a errores en nuestro sistema
 * **Gestión manual de dependencias:** tenemos que cargar los archivos en un orden concreto, de lo contrario nuestro sistema falla
@@ -20,7 +20,7 @@ Es conviente utilizar una solución para modularizar nuestros sistemas JS porque
 
 ### 1.1 - Revealing Module Pattern
 
-Esta estrategia se base en la uso de funciones en Javascript para aislar el contexto de cada módulo. El punto de entrada en un sistema que use "Revealing Module Pattern" será un IIFE (Immediately Invoked Function Expression) como se puede ver en el ejemplo de [panaderia rmp](./panaderia/rmp).
+Esta estrategia se basa en la uso de funciones en Javascript para aislar el contexto de cada módulo. El punto de entrada en un sistema que use "Revealing Module Pattern" será un IIFE (Immediately Invoked Function Expression) como se puede ver en el ejemplo de [panaderia rmp](./panaderia/rmp).
 
 #### Estructura
 
